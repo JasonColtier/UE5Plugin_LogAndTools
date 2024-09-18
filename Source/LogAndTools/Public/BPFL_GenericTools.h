@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "BPFL_Print.generated.h"
+#include "BPFL_GenericTools.generated.h"
 
 /**
  * 
@@ -19,7 +19,7 @@ enum ELogEnum
 };
 
 UCLASS()
-class LOGANDTOOLS_API UBPFL_Print : public UBlueprintFunctionLibrary
+class LOGANDTOOLS_API UBPFL_GenericTools : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 
@@ -29,4 +29,6 @@ public:
 	UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject", CallableWithoutWorldContext, Keywords = "log print", AdvancedDisplay = "2", DevelopmentOnly), Category="Utilities|String")
 	static void PI_Print(const UObject* WorldContextObject, FString String1, FString String2, ELogEnum LogCategory, bool bPrintToScreen = true, bool bPrintToLog = true, FLinearColor TextColor = FLinearColor(0.0, 0.66, 1.0), float Duration = 2.f);
 
+	UFUNCTION(BlueprintCallable, Category = "Irwino")
+	static bool IsFirstPawnLocallyControlled(AActor* WorldContext);
 };
